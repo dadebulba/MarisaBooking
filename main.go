@@ -27,7 +27,7 @@ func main() {
 	// Graceful shutdown handling
 	go func() {
 		log.Println("Server is running on port 8080")
-		if err := router.Run(":8080"); err != nil {
+		if err := router.Run("127.0.0.1:8080"); err != nil {
 			log.Fatalf("Server stopped with error: %v", err)
 		}
 	}()
