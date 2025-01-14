@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS marisa.event (
 CREATE TABLE IF NOT EXISTS marisa.event_item (
     id SERIAL PRIMARY KEY,
     event_id UUID REFERENCES marisa.event(id) ON DELETE CASCADE,
-    "name" VARCHAR(255) NOT NULL, -- e.g., 'deposit', 'final'
-    payment_link VARCHAR(255),
+    "name" VARCHAR(255) NOT NULL, -- e.g., 'total fee', 'legal policy to sign'
+    payment_link VARCHAR(255), -- maybe to change with simply the amount and create a payment intent on the fly
     document_template UUID,
     kind VARCHAR(50), -- e.g., 'payment', 'document'
     expires_at TIMESTAMP,

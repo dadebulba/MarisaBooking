@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// GetEvents retrieves all events
 func GetEvents(c *gin.Context) {
 	events, err := services.GetAllEvent()
 	if err != nil {
@@ -18,6 +19,7 @@ func GetEvents(c *gin.Context) {
 	c.JSON(http.StatusOK, events)
 }
 
+// CreateEvent creates a new event
 func CreateEvent(c *gin.Context) {
 	var event models.Event
 	if err := c.ShouldBindJSON(&event); err != nil {
